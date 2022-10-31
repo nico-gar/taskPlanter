@@ -22,7 +22,6 @@ const updateTask = (id, type) => {
     .then(tasksCallback)
     .catch(errCallback)
 }
-// to change priority from numbers to words, you create a dropdown of five strings in the front end and keep the backend integers. google dropdown and select tag and options, "select tag doc" should help me link the numbers to strings. nested elements that has options, each option has a value that can be asigned numbers. the user will see the words rather than the numbers
 
 const editTaskName = (e) => {
     e.preventDefault()

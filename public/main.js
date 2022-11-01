@@ -35,15 +35,24 @@ let completedTasks = 1
 const switchComplete = (completed, id) => {
     if (completed === false) {
         completeTask(id)
+        if (completedTasks < 20){
+            completedTasks +=1
+        growPlant()
+    }
     }else {
         uncompleteTask(id)
+        if (completedTasks > 1){
+            completedTasks -= 1
+            growPlant()
+        }
     }
-    completedTasks+= 1
+
     console.log(completedTasks);
 }
 
 const growPlant = () => {
     plant.src = `https://github.com/Coro-Cota/taskPlanter/blob/master/Images/cactus/cactus_${completedTasks}.png?raw=true`
+    console.log(plant.src);
 }
 
 const deleteTask = id => axios.delete(`${baseURL}/${id}`).then(tasksCallback).catch(errCallback)

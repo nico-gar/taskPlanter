@@ -1,5 +1,6 @@
 const taskContainer = document.querySelector('#task-container')
 const form = document.querySelector('form')
+const plant = document.getElementById("plant")
 
 const baseURL = `http://localhost:4000/api/task`
 
@@ -16,7 +17,37 @@ const createTask = (body) => {
     .then(tasksCallback)
     .catch(errCallback)
 }
+
+const completeTask = (id) => {
+    axios.put(`${baseURL}/complete/${id}`)
+    .then(tasksCallback)
+    .catch(errCallback)
+}
+
+const uncompleteTask = (id) => {
+    axios.put(`${baseURL}/uncomplete/${id}`)
+    .then(tasksCallback)
+    .catch(errCallback)
+}
+
+let completedTasks = 1
+
+const switchComplete = (completed, id) => {
+    if (completed === false) {
+        completeTask(id)
+    }else {
+        uncompleteTask(id)
+    }
+    completedTasks+= 1
+    console.log(completedTasks);
+}
+
+const growPlant = () => {
+    plant.src = `https://github.com/Coro-Cota/taskPlanter/blob/master/Images/cactus/cactus_${completedTasks}.png?raw=true`
+}
+
 const deleteTask = id => axios.delete(`${baseURL}/${id}`).then(tasksCallback).catch(errCallback)
+
 const updateTask = (id, type) => {
     axios.put(`${baseURL}/${id}`, {type})
     .then(tasksCallback)
@@ -47,7 +78,7 @@ function submitHandler(e) {
 }
 
 let createTaskLine = (theTask) => {
-    const { id, task, priority } = theTask;
+    const { id, task, priority, completed } = theTask;
 
     const taskLine = document.createElement('div')
     taskLine.classList.add('task-line')
@@ -55,7 +86,10 @@ let createTaskLine = (theTask) => {
     taskLine.innerHTML = `
         <div id="taskLine-${id}">
             <div class="task-wrapper">
-                <p class="task-name">
+                <button class="complete" onclick="switchComplete(${completed},${id})">
+                <ion-icon name="checkbox-outline"></ion-icon>
+                </button>
+                <p class="task-name ${completed}">
                     ${task}
                 </p>
                 <div class="edit-task-wrapper">
@@ -64,7 +98,8 @@ let createTaskLine = (theTask) => {
                         <button class="update" type="submit">update</button>
                     </form>
                 </div>
-                <button class="edit-task-name">edit</button>
+                <button class="edit-task-name">
+                <ion-icon name="create-outline"></ion-icon></button>
                 <div class="btns-container">
                     <button id="minus" onclick="updateTask(${id}, 'minus')">-</button>
                         <p class="task-priority">
@@ -72,7 +107,9 @@ let createTaskLine = (theTask) => {
                         </p>
                     <button id="plus" onclick="updateTask(${id}, 'plus')">+</button>
                 </div>
-                <button class="deleteTask" onclick="deleteTask(${id})">delete</button>
+                <button class="deleteTask" onclick="deleteTask(${id})">
+                <ion-icon name="close-outline"></ion-icon>
+                </ion-icon></button>
             </div>
         </div>
     `
@@ -109,9 +146,12 @@ let createTaskLine = (theTask) => {
 }
 
 let displayTasks = (arr) => {
+    console.log(arr);
     taskContainer.innerHTML = ``
     for (let i = 0; i < arr.length; i++) {
-        createTaskLine(arr[i])        
+        // if (arr[i].completed === false){
+            createTaskLine(arr[i])
+        // }
     }
 }
 

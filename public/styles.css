@@ -215,6 +215,12 @@ main {
 
 /* task list section */
 
+.complete {
+    border-radius: 0.5em;
+    background-color: #8EBAA8;
+    margin-top: 7px;
+}
+
 .task-wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -269,7 +275,7 @@ main {
     display: flex;
     margin: 5px;
     border-radius: 0.5em;
-    padding: 10px 20px;
+    padding: 10px 5px;
     border: none;
     color: #806043;
     cursor: pointer;
@@ -281,7 +287,7 @@ main {
     border-radius: 0.5em;
     height: 33px;
     width: 26px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 0px;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -294,12 +300,15 @@ main {
     height: 33px;
     width: 26px;
     margin-left: 0px;
-    margin-right: 10px;
+    margin-right: 5px;
     margin-top: 30px;
     margin-bottom: 20px;
     background-color: #8EBAA8;
 }
 
+.true {
+    text-decoration: line-through;
+}
 
 .deleteTask {
     border-radius: 0.5em;

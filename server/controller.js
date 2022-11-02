@@ -7,6 +7,9 @@ module.exports = {
         //path.join combines two segments of a file path
         res.sendFile(path.join(__dirname, "../public/index.html"))
     },
+    getGrowth:(req,res) =>{
+        res.sendFile(path.join(__dirname, "../public/plant-growth.html"))
+    },
     getCSS:(req,res) =>{
         //path.join combines two segments of a file path
         res.sendFile(path.join(__dirname, "../public/styles.css"))

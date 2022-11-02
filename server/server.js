@@ -5,6 +5,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("public"))
 
 const {
     getTasks,
@@ -16,12 +17,14 @@ const {
     uncompleteTask,
     getHTML,
     getCSS,
-    getJS
+    getJS,
+    getGrowth
 } = require(`./controller`);
 
 app.get('/', getHTML)
 app.get(`/css`, getCSS)
 app.get(`/js`, getJS)
+app.get('/growth',getGrowth)
 
 app.get(`/api/task`, getTasks)
 app.delete(`/api/task/:id`, deleteTask)

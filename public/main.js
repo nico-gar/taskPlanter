@@ -51,7 +51,7 @@ const switchComplete = (completed, id) => {
 }
 
 const growPlant = () => {
-    plant.src = `https://github.com/Coro-Cota/taskPlanter/blob/master/Images/cactus/cactus_${completedTasks}.png?raw=true`
+    plant.src = `./Images/cactus/cactus_${completedTasks}.png`
     console.log(plant.src);
 }
 

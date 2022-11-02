@@ -15,6 +15,6 @@
         "id": 3,
         "task": "Get Icecream",
         "priority": 5,
-        "completed": true
+        "completed": false
     }
 ]

@@ -2,7 +2,8 @@ const taskContainer = document.querySelector('#task-container')
 const form = document.querySelector('form')
 const plant = document.getElementById("plant")
 
-const baseURL = `http://localhost:4000/api/task`
+const baseURL = ``
+// const baseURL = `http://localhost:4000/api/task`
 
 const tasksCallback = ({ data: tasks }) => displayTasks(tasks)
 const errCallback = err => console.log(err.response.data)

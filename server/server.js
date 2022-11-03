@@ -34,6 +34,6 @@ app.put(`/api/task`, editTaskName)
 app.put(`/api/task/complete/:id`, completeTask)
 app.put(`/api/task/uncomplete/:id`, uncompleteTask)
 
-const port = 4000 || process.env.PORT
+const port = process.env.PORT || 4000
 
-app.listen(port, console.log('server running on 4000'))
+app.listen(port, console.log('server running'))

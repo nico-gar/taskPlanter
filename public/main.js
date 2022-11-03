@@ -157,11 +157,14 @@ let createTaskLine = (theTask) => {
 let displayTasks = (arr) => {
     console.log(arr);
     taskContainer.innerHTML = ``
+    let addToCompletedTasks = 0
     for (let i = 0; i < arr.length; i++) {
-        // if (arr[i].completed === false){
             createTaskLine(arr[i])
-        // }
-    }
+        if (arr[i].completed === true) {
+            addToCompletedTasks += 1
+        }
+    } completedTasks = addToCompletedTasks
+    growPlant()
 }
 
 form.addEventListener('submit', submitHandler)

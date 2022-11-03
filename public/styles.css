@@ -15,7 +15,7 @@ body {
     margin: 1em;
 }
 
-@media screen and (min-width: 475px) {
+@media screen and (min-width: 390px) {
     body {
         grid: auto-flow min-content / 2fr 1fr;
         grid-template-rows: auto 100px auto 100px;
@@ -40,6 +40,8 @@ body {
         grid-auto-rows: minmax(auto,auto);
         grid-template-areas: "header header"
                              "nav   nav"
+                             "aside  main  "
+                             "aside  main  "
                              "aside  main  "
                              "aside  main  "
                              "footer footer";
@@ -80,9 +82,11 @@ body {
    grid-template-rows: auto 100px auto 100px;
    grid-template-columns: 1fr 3fr;
    grid-gap: 1em;
-   background: url('/Images/terracotta-cactus.jpg');
+   background: url('/Images/terracotta-cactus.jpg') no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
    background-size: cover;
-   background-attachment: fixed;
 }
 
 main, aside, header {
@@ -100,8 +104,6 @@ header {
 .plantHeader {
     font-size: 2em;
 }
-
-
 
 /* nav section */
 
@@ -200,7 +202,8 @@ main {
     padding: 10px 20px;
     background-color: #8EBAA8;
     border: 1px solid #ddd;
-    color: #806043;
+    color: #795548;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 0.5em;
 }
@@ -215,7 +218,8 @@ main {
 
 .task-name {
     font-family: 'Beth Ellen', sans-serif;
-    font-size: 30px;
+    font-size: 2vm;
+    color: #795548;
 }
 
 /* task list section */
@@ -229,6 +233,7 @@ main {
 .task-wrapper {
     display: flex;
     flex-flow: row wrap;
+    height: 20%;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -236,8 +241,9 @@ main {
 
 .task-name {
     vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
+    height: 50px;
+    margin: 0px 5px;
+    padding: 0px;
     width: 50%;
     border-radius: 0.5em;
 }
@@ -269,25 +275,26 @@ main {
 }
 
 .task-priority {
-    padding: 5px 10px;
-    margin-top: 27px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 15px;
+    width: 125px;
     background-color: #8EBAA8;
     border: 1px solid #ddd;
-    color: #806043;
+    color: #795548;
     cursor: pointer;
     border-radius: 0.5em;
 }
 
 .btns-container {
     display: flex;
-    margin: 5px;
+    height: auto;
     border-radius: 0.5em;
-    padding: 10px 5px;
+    padding: 0px 5px;
     border: none;
-    color: #806043;
+    color: #795548;
     cursor: pointer;
     border-radius: 0.5em;
-    
 }
 
 #plus{
@@ -296,8 +303,6 @@ main {
     width: 26px;
     margin-left: 5px;
     margin-right: 0px;
-    margin-top: 30px;
-    margin-bottom: 20px;
     background-color: #8EBAA8;
 
 }
@@ -308,8 +313,8 @@ main {
     width: 26px;
     margin-left: 0px;
     margin-right: 5px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    /* margin-top: 30px;
+    margin-bottom: 20px; */
     background-color: #8EBAA8;
 }
 
@@ -349,7 +354,9 @@ main {
     }
 
 }
-
+/* plant growth page start */
 #plant-growth{
-    background-image: url("/Images/cactus/plant-growth.gif");
+    background: url("Images/cactus/plant-growth.gif") no-repeat center center fixed; 
+    background-color: black;
 }
+/* plant growth page end */

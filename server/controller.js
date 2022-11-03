@@ -66,13 +66,13 @@ module.exports = {
         res.status(200).send(tasks) //then we send our edited task array back to the front, end and display the new task list.
     },
     completeTask: (req,res) => {
-        console.log("hit")
+        // console.log("hit")
         let index = tasks.findIndex(elem => elem.id === +req.params.id)
         tasks[index].completed = true
         res.status(200).send(tasks)
     },
     uncompleteTask: (req,res) => {
-        console.log("hit")
+        // console.log("hit")
         let index = tasks.findIndex(elem => elem.id === +req.params.id)
         tasks[index].completed = false
         res.status(200).send(tasks)

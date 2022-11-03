@@ -47,7 +47,7 @@ const switchComplete = (completed, id) => {
         }
     }
 
-    console.log(completedTasks);
+    console.log(completedTasks, "completed tasks");
 }
 
 const growPlant = () => {
@@ -134,7 +134,7 @@ let createTaskLine = (theTask) => {
 
     // when the .task-name is clicked -> toggle visibility for the .task-wrapper and .edit-task-form
     editTaskBtn.addEventListener('click', () => {
-        console.log('hit');
+        // console.log('hit');
         taskNameElement.style.display = 'none';
         editTaskWrapper.style.display = 'block';
         editTaskBtn.style.display = 'none';
@@ -155,13 +155,15 @@ let createTaskLine = (theTask) => {
 }
 
 let displayTasks = (arr) => {
-    console.log(arr);
+    console.log(arr.length, "array length");
     taskContainer.innerHTML = ``
     let addToCompletedTasks = 0
     for (let i = 0; i < arr.length; i++) {
             createTaskLine(arr[i])
         if (arr[i].completed === true) {
+            if (addToCompletedTasks < 20)
             addToCompletedTasks += 1
+            console.log(addToCompletedTasks, "add to completed tasks");
         }
     } completedTasks = addToCompletedTasks
     growPlant()
